@@ -1,0 +1,7 @@
+h1{background-color:black;color:PaleTurquoise}
+body{background-color:PaleTurquoise}
+table, th, td {
+  border: 5px solid black;
+  border-collapse: collapse;
+width:800
+}

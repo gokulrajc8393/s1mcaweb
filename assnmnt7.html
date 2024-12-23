@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        #calendar {
+            margin-top: 20px;
+            display: inline-block;
+            text-align: center;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            background-color: #fff;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        td {
+            cursor: pointer;
+        }
+        td:hover {
+            background-color: #f0f0f0;
+        }
+        #calendar-header {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Calendar</h1>
+<p>Enter a Year and Month:</p>
+<form id="calendar-form">
+    Year: <input type="number" id="year" placeholder="2024" required>
+    Month: <input type="number" id="month" placeholder="1" min="1" max="12" required>
+    <button type="submit">Submit</button>
+</form>
+
+<div id="calendar"></div>
+
+<script>
+// Function to generate the calendar
+function generateCalendar(year, month) {
+    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    
+    // Calculate the first day of the month and the number of days in the month
+    const firstDay = new Date(year, month - 1, 1);
+    const lastDay = new Date(year, month, 0);
+    const totalDays = lastDay.getDate();
+    
+    // Get the day of the week for the 1st day of the month (0=Sunday, 1=Monday, etc.)
+    const firstDayOfWeek = firstDay.getDay();
+    
+    let calendarHTML = `<div id="calendar-header">${monthNames[month - 1]} ${year}</div>`;
+    calendarHTML += "<table><tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr><tr>";
+
+    // Add empty cells for the first week (if the month does not start on Sunday)
+    for (let i = 0; i < firstDayOfWeek; i++) {
+        calendarHTML += "<td></td>";
+    }
+    
+    // Add the days of the month
+    for (let day = 1; day <= totalDays; day++) {
+        if ((firstDayOfWeek + day - 1) % 7 === 0 && day !== 1) {
+            calendarHTML += "</tr><tr>";
+        }
+        calendarHTML += `<td>${day}</td>`;
+    }
+
+    // Close the table tag
+    calendarHTML += "</tr></table>";
+
+    // Output the calendar
+    document.getElementById("calendar").innerHTML = calendarHTML;
+}
+
+// Event listener for the form submission
+document.getElementById("calendar-form").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    // Get the values of year and month from the input fields
+    const year = parseInt(document.getElementById("year").value);
+    const month = parseInt(document.getElementById("month").value);
+
+    // Validate the inputs
+    if (!year || !month || month < 1 || month > 12 || year < 1000 || year > 9999) {
+        alert("Please enter a valid year (1000-9999) and month (1-12).");
+        return;
+    }
+
+    // Generate the calendar
+    generateCalendar(year, month);
+});
+</script>
+
+</body>
+</html>

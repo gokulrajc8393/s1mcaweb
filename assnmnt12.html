@@ -1,0 +1,191 @@
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .exam-container {
+            width: 50%;
+            margin: 50px auto;
+            padding: 20px;
+
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .question h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .answer {
+            margin: 10px 0;
+        }
+
+        .answer input {
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #28a1f8;
+            color: white;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }    
+    </style>
+</head>
+<body>
+
+<div class="exam-container">
+    <h1>ONLINE TEST</h1>
+    <form id="examForm" onsubmit="return calculateResults(event)">
+        <div class="question">
+            <h3>1. Which of the following is used to style web pages?Which of the following is used to style web pages?</h3>
+            <div class="answer">
+                <input type="radio" name="q1" value="html" id="q1a1"> HTML
+            </div>
+            <div class="answer">
+                <input type="radio" name="q1" value="css" id="q1a2"> CSS
+            </div>
+            <div class="answer">
+                <input type="radio" name="q1" value="javascript" id="q1a3"> JavaScript
+            </div>
+            <div class="answer">
+                <input type="radio" name="q1" value="sql" id="q1a4"> SQL
+            </div>
+        </div>
+
+        <div class="question">
+            <h3>2. Which of the following is an example of a non-volatile memory?</h3>
+            <div class="answer">
+                <input type="radio" name="q2" value="ram" id="q2a1"> RAM
+            </div>
+            <div class="answer">
+                <input type="radio" name="q2" value="cache" id="q2a2"> Cache
+            </div>
+            <div class="answer">
+                <input type="radio" name="q2" value="rom" id="q2a3"> ROM
+            </div>
+            <div class="answer">
+                <input type="radio" name="q2" value="register" id="q2a4"> Register
+            </div>
+        </div>
+
+        <div class="question">
+            <h3>3. Which data structure uses LIFO (Last In First Out) principle?</h3>
+            <div class="answer">
+                <input type="radio" name="q3" value="linkedlist" id="q3a1"> Linked List
+            </div>
+            <div class="answer">
+                <input type="radio" name="q3" value="queue" id="q3a2"> Queue
+            </div>
+            <div class="answer">
+                <input type="radio" name="q3" value="stack" id="q3a3"> Stack
+            </div>
+            <div class="answer">
+                <input type="radio" name="q3" value="array" id="q3a4"> Array
+            </div>
+        </div>
+
+        <div class="question">
+            <h3>4. What is the full form of the acronym 'URL'?</h3>
+            <div class="answer">
+                <input type="radio" name="q4" value="uniloc" id="q4a1"> Uniform Resource Locator
+            </div>
+            <div class="answer">
+                <input type="radio" name="q4" value="univerloc" id="q4a2"> Universal Resource Locator
+            </div>
+            <div class="answer">
+                <input type="radio" name="q4" value="unilink" id="q4a3"> Uniform Resource Link
+            </div>
+            <div class="answer">
+                <input type="radio" name="q4" value="univerlink" id="q4a4"> Universal Resource Link
+            </div>
+        </div>
+
+        <div class="question">
+            <h3>5. WWhich of the following is the largest unit of storage?</h3>
+            <div class="answer">
+                <input type="radio" name="q5" value="kilo" id="q5a1"> Kilobyte
+            </div>
+            <div class="answer">
+                <input type="radio" name="q5" value="tera" id="q5a2"> Terabyte
+            </div>
+            <div class="answer">
+                <input type="radio" name="q5" value="mega" id="q5a3"> Megabyte
+            </div>
+            <div class="answer">
+                <input type="radio" name="q5" value="giga" id="q5a4"> Gigabyte
+            </div>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit Exam</button>
+    </form>
+
+    <div id="result" class="result"></div>
+</div>
+
+<script>
+    
+    function calculateResults(event) {
+        event.preventDefault(); 
+       
+           let answ1="css";
+           let answ2="rom";
+           let answ3="stack";
+           let answ4="uniloc";
+           let answ5="tera";
+           let score = 0;
+           let que1 = document.querySelector('input[name="q1"]:checked').value;
+           let que2 = document.querySelector('input[name="q2"]:checked').value;
+           let que3 = document.querySelector('input[name="q3"]:checked').value;
+           let que4 = document.querySelector('input[name="q4"]:checked').value;
+           let que5 = document.querySelector('input[name="q5"]:checked').value;
+           if (que1==answ1) 
+            {
+                score++;
+            }
+           if (que2==answ2) 
+            {
+                score++;
+            }
+           if (que3==answ3) 
+            {
+                score++;
+            }
+           if (que4==answ4) 
+            {
+                score++;
+            }
+           if (que5==answ5) 
+            {
+                score++;
+            }
+
+       let resultMessage = `You scored ${score} out of 5.`;
+alert(resultMessage);
+
+    }
+</script>
+
+</body>
+</html>

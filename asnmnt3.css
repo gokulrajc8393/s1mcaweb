@@ -1,0 +1,28 @@
+
+
+.card-container {
+    display: flex;
+    gap: 20px; /* Space between cards */
+    padding: 15px;
+}
+
+.card {
+    background-color: white; /* Card background color */
+    border: 1px solid #ccc; /* Card border */
+    border-radius: 8px; /* Rounded corners */
+    width: 480px; /* Fixed width for equal sizing */
+    overflow: hidden; /* Hide overflow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Card shadow */
+}
+
+.card-image {
+    width: 100%; /* Full width of the card */
+    height: 300px; /* Fixed height for images */
+    object-fit: cover; /* Cover the area without distortion */
+}
+
+.card-text {
+    padding: 15px; /* Padding for text */
+    text-align: center; /* Center the text */
+}
+

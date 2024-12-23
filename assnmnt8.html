@@ -1,0 +1,40 @@
+
+<html>
+<head>  
+    <style>
+        #Button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="Button">Click Here</button>
+
+    <script>
+        // Select the button element
+const button = document.getElementById('Button');
+
+// Event listener for 'click' event
+button.addEventListener('click', function() {
+    alert("Button was clicked!");
+});
+
+// Event listener for 'mouseenter' event
+button.addEventListener('mouseenter', function() {
+    button.style.backgroundColor = 'lightgreen'; // Change button color on mouse enter
+    console.log("Mouse entered the button!");
+});
+
+// Event listener for 'mouseleave' event
+button.addEventListener('mouseleave', function() {
+    button.style.backgroundColor = ''; // Revert to original color on mouse leave
+    console.log("Mouse left the button!");
+});
+
+    
+    </script>
+</body>
+</html>

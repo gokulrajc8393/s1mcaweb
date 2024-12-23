@@ -1,0 +1,40 @@
+<html>
+
+<h2 id="demo"></h2>
+<h2 id="demo1"></h2>
+<h2 id="demo2"></h2>
+<h2 id="demo3"></h2>
+<h2 id="demo4"></h2>
+<h2 id="demo5"></h2>
+<h2 id="demo6"></h2>
+<h2 id="demo7"></h2>
+<h2 id="demo8"></h2>
+<h2 id="demo9"></h2>
+<h2 id="demo10"></h2>
+
+<script>
+let text="apple,banana,kiwi";
+let part=text.slice(6,12);
+let part1=text.substring(13,17);
+let part2=text.substr(0,12);
+let part3=text.substr(-6);
+let part4=text.replace("banana","pappaya");
+document.getElementById("demo").innerHTML=part;
+document.getElementById("demo1").innerHTML=part1;
+document.getElementById("demo2").innerHTML=part2;
+document.getElementById("demo3").innerHTML=part3;
+document.getElementById("demo4").innerHTML=part4;
+document.getElementById("demo5").innerHTML=Math.round(4,5);
+document.getElementById("demo6").innerHTML=Math.ceil(4,5);
+document.getElementById("demo7").innerHTML=Math.floor(4,5);
+document.getElementById("demo8").innerHTML=Math.pow(8,2);
+const d=new Date();
+document.getElementById("demo9").innerHTML=d;
+const days=["sunday","monday","tuesday","wednesday","thursday","friday","saturday"];
+const d1=new Date("2024-11-20");
+let day = days[d.getDay(d1)];
+document.getElementById("demo10").innerHTML=day;
+
+</script>
+
+</html>

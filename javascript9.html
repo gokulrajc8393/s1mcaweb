@@ -1,0 +1,20 @@
+<html>
+<body>
+<button name="button" id="button">Try</button>
+<h3 id="demo"></h3>
+<script>
+var x=document.getElementById("button");
+x.addEventListener("mouseover",mouseOverFunction);
+x.addEventListener("click",mouseClickFunction);
+
+function mouseOverFunction()
+{
+document.getElementById("demo").innerHTML="mouse over";
+}
+function mouseClickFunction()
+{
+alert("mouse clicked");
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<html>
+    <h3>
+        <form onsubmit="strfunction(event)">
+            <label for="stringval">Enter String:</label>
+            <input type="text" id="stringval" name="stringval"><br><br>
+            <input type="submit"  name="submit" value="submit">
+        </form>
+    </h3>
+        
+            <h3 id="strdemo1"></h3>
+            <h3 id="strdemo2"></h3>
+            <h3 id="strdemo3"></h3>
+            <h3 id="strdemo4"></h3>
+            <h3 id="strdemo5"></h3>
+            <h3 id="strdemo6"></h3>
+            <h3 id="strdemo7"></h3>
+            
+            <script>
+            function strfunction(event)
+            {
+            event.preventDefault(); 
+            let val=document.getElementById("stringval").value;
+            let val1=val.length;
+            let val2=val.slice(4,8);
+            let val3=val.substring(0,6);
+            let val4=val.substr(2,5);
+            let val5=val.toUpperCase();
+            let val6=val.toLowerCase();
+            let val7="hello";
+            let val8=val.concat(" ",val7);
+            document.getElementById("strdemo1").innerHTML="length: " + val1;
+            document.getElementById("strdemo2").innerHTML="slice(4,8): " + val2;
+            document.getElementById("strdemo3").innerHTML="substring(0,6): " + val3;
+            document.getElementById("strdemo4").innerHTML="substr(2,5): " + val4;
+            document.getElementById("strdemo5").innerHTML="upper case: " + val5;
+            document.getElementById("strdemo6").innerHTML="lower case: " + val6;
+            document.getElementById("strdemo7").innerHTML="concat hello: " + val8;
+            }
+            </script>
+    
+</html>

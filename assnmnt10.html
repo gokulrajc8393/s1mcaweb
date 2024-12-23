@@ -1,0 +1,64 @@
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #content {
+            padding: 50px;
+            background-color: lightgray;
+            width: 300px;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+
+        #newContent {
+            display: none;
+            padding: 20px;
+            background-color: lightblue;
+            margin-top: 20px;
+        }
+
+        #newImage {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+        }
+
+        h2 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="content">
+        <h2>Hover over this area</h2>
+    </div>
+
+    <div id="newContent">
+        <h2>Here is the new image</h2>
+        <img id="newImage" src="attutheeram.jpg" alt="New Image">
+    </div>
+
+    <script>
+       
+        const content = document.getElementById('content');
+        const newContent = document.getElementById('newContent');
+
+       
+        content.addEventListener('mouseenter', function() {
+            newContent.style.display = 'block';  
+        });
+
+        
+        content.addEventListener('mouseleave', function() {
+            newContent.style.display = 'none';  
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,178 @@
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .success {
+            color: green;
+            font-size: 14px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a1f8;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+       
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>REGISTRATION FORM</h2>
+    <form id="registrationForm" onsubmit="return validateForm()">
+  
+        <label for="fname">First Name:</label>
+        <input type="text" id="fname" name="fname" placeholder="Enter first name" >
+        <div id="ferror" class="error"></div>
+
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" name="lname" placeholder="Enter last name" >
+        <div id="lerror" class="error"></div>
+        
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter email">
+        <div id="eerror" class="error"></div>
+        
+        <label for="phone">Phone</label>
+        <input type="text" id="phone" name="phone" placeholder="Enter phone number">
+        <div id="perror" class="error"></div>
+       
+        <label for="gender">Gender</label>
+        <select id="gender" name="gender">
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+        <div id="gerror" class="error"></div>
+      
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter password">
+        <div id="passerror" class="error"></div>
+
+        <label for="cPassword">Confirm Password</label>
+        <input type="password" id="cPassword" name="cPassword" placeholder="Confirm password">
+        <div id="cperror" class="error"></div>
+        <button type="submit">Register</button>
+    </form>
+    <div id="formSuccess" class="success"></div>
+</div>
+
+<script>
+    function validateForm() {
+        let isValid = true;
+        document.getElementById("ferror").innerHTML = "";
+        document.getElementById("lerror").innerHTML = "";
+        document.getElementById("eerror").innerHTML = "";
+        document.getElementById("perror").innerHTML = "";
+        document.getElementById("gerror").innerHTML = "";
+        document.getElementById("passerror").innerHTML = "";
+        document.getElementById("cperror").innerHTML = "";
+        document.getElementById("formSuccess").innerHTML = "";
+
+        const fname = document.getElementById("fname").value;
+        const lname = document.getElementById("lname").value;
+        const email = document.getElementById("email").value;
+        const phone = document.getElementById("phone").value;
+        const gender = document.getElementById("gender").value;
+        const password = document.getElementById("password").value;
+        const confirmPassword = document.getElementById("cPassword").value;
+
+        const fnamePattern = /^[A-Za-z]+$/;
+        if (fname === "") {
+            document.getElementById("ferror").innerHTML = "Please enter valid first Name.";
+            isValid = false;
+        } else if (!fnamePattern.test(fname)) {
+            document.getElementById("ferror").innerHTML = "Enter Valid Name.";
+            isValid = false;
+        }
+
+        const lnamePattern = /^[A-Za-z\s\-']+$/;
+        if (lname === "") {
+            document.getElementById("lerror").innerHTML = "Please enter valid second Name.";
+            isValid = false;
+        } else if (!lnamePattern.test(lname)) {
+            document.getElementById("lerror").innerHTML = "Enter Valid Name.";
+            isValid = false;
+        }
+
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        if (email === "" || !emailPattern.test(email)) {
+            document.getElementById("eerror").innerHTML = "Please enter a valid email address.";
+            isValid = false;
+        }
+
+        const phonePattern = /^[0-9]{10}$/;
+        if (phone === "" || !phonePattern.test(phone)) {
+            document.getElementById("perror").innerHTML = "Please enter a valid 10-digit phone number.";
+            isValid = false;
+        }
+
+        if (gender === "") {
+            document.getElementById("gerror").innerHTML = "Gender is required.";
+            isValid = false;
+        }
+
+        if (password === "") {
+            document.getElementById("passerror").innerHTML = "Password is required.";
+            isValid = false;
+        } else if (password.length < 6) {
+            document.getElementById("passerror").innerHTML = "Password must be at least 6 characters.";
+            isValid = false;
+        }
+
+        if (confirmPassword !== password) {
+            document.getElementById("cperror").innerHTML = "Passwords do not match.";
+            isValid = false;
+        }
+
+        if (isValid) {
+            alert("Registration Successfull");
+        }
+
+        return isValid; 
+    }
+</script>
+
+</body>
+</html>

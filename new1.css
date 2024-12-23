@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    flex-direction: column; /* Stacks cards vertically */
+    gap: 20px; /* Space between cards */
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    text-align: center; /* Center-aligns text */
+}
+
+.card-image {
+    max-width: 100%; /* Responsive image */
+    height: auto;
+    border-radius: 8px 8px 0 0; /* Rounded top corners */
+}
+
+.card-name {
+    font-size: 1.5em;
+    margin: 10px 0 5px; /* Space around name */
+}
+
+.card-description {
+    font-size: 1em;
+    color: #666; /* Gray text for description */
+}

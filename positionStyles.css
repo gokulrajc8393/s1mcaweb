@@ -1,0 +1,80 @@
+* { box-sizing: border-box;}
+
+body {
+
+font-family: Arial, sans-serif;
+
+margin: 0;
+
+padding: 0;}
+
+.container {
+
+position: relative;
+
+height: 100vh;
+
+padding: 20px;
+
+background-color: #f0f0f0;}
+
+.box {
+
+width: 150px;
+
+height: 150px;
+
+margin: 20px;
+
+display: flex;
+
+justify-content: center;
+
+align-items: center;
+
+color: white;
+
+font-weight: bold;}
+
+
+.static {
+
+background-color: #3498db; /* Blue */
+
+/* Default position is static */}
+
+.relative {
+
+background-color: #e74c3c; /* Red */
+
+position: relative;
+
+top: 20px; /* Moves down from its normal position */}
+
+.absolute {
+
+background-color: #2ecc71; /* Green */
+
+position: absolute;
+
+top: 50px; /* 50px from the top of the nearest positioned ancestor */
+
+left: 50px; /* 50px from the left of the nearest positioned ancestor */}
+
+.fixed {
+
+background-color: #9b59b6; /* Purple */
+
+position: fixed;
+
+bottom: 20px; /* 20px from the bottom of the viewport */
+
+right: 20px; /* 20px from the right of the viewport */}
+
+.sticky {
+
+background-color: #f39c12; /* Orange */
+
+position: sticky;
+
+top: 0; /* Sticks to the top when you scroll */}
