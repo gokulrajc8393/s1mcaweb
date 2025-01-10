@@ -87,17 +87,6 @@ $amount=(100*5)+(100*7.5)+(($unit-200)*10);
 
 <div class="container">
 <h1>Electricity Bill</h1>
-<form method="POST" action="bill.php">
-<label for="consumerno">Enter Consumer Number:</label>
-<input type="text" id="consumerno" name="consumerno" value="<?php echo $consumerno;?>" placeholder="Enter Consumer No">
-<label for="consumername">Enter Consumer Name:</label>
-<input type="text" id="consumername" name="consumername" value="<?php echo $consumername;?>" placeholder="Enter Consumer Name">
-<label for="unit">Enter units consumed:</label>
-<input type="text" id="units" name="units" value="<?php echo $unit;?>" placeholder="Enter No Of Units Consumed">
-<div id="passerror" class="error"><?php echo $valueERR;?></div>
-<input type="submit" name="submit" value="Calculate Bill">
-</form>
-
 
 <div class="result">
 <h2>Consumer No: <?php echo $consumerno ?></h2>
