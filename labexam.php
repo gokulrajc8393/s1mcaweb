@@ -59,6 +59,9 @@ $dbname="college";
 $conn=mysqli_connect($servername,$username,$password,$dbname);
 $sql="SELECT * FROM book";
 $res=mysqli_query($conn,$sql);
+if (mysqli_num_rows($res) > 0) {
+  // Display table if data exists
+
 echo '<table style="width:50%">
 <tr>
 <th><h1>SI No</h1></th>
@@ -81,6 +84,13 @@ echo
 </tr>';
 }
 echo '</table>';
+} else {
+  // Display message if no records are found
+  echo '<h1>No records found</h1>';
+}
+
+// Close the connection
+mysqli_close($conn);
 ?>
 
 
